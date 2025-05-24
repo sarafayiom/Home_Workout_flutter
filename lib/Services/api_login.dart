@@ -5,7 +5,7 @@ import 'package:homeworkout_flutter/Models/user_login_model.dart';
 class ApiLogin extends GetConnect {
   @override
   void onInit() {
-    baseUrl = 'http://10.0.2.2:8000/api';
+   baseUrl = 'http://127.0.0.1:8000/api';
     super.onInit();
   }
 

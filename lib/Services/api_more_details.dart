@@ -7,7 +7,7 @@ class ApiMoreDetails extends GetConnect {
   final box = GetStorage();
 
   ApiMoreDetails() {
-    httpClient.baseUrl = "http://10.0.2.2:8000";
+    httpClient.baseUrl = 'http://127.0.0.1:8000/api';
   }
 
   Map<String, String> get headers {

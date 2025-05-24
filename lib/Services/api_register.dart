@@ -7,7 +7,7 @@ import 'package:homeworkout_flutter/Models/user_register_model.dart';
 class ApiRegister extends GetConnect{
   @override
   ApiRegister() {
-  baseUrl = 'http://10.0.2.2:8000/api';
+  baseUrl = 'http://127.0.0.1:8000/api';
 
   httpClient.timeout = const Duration(seconds: 20);
 
