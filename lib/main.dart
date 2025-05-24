@@ -34,13 +34,12 @@ class _Myapp extends State<MyApp> {
         initialRoute: '/',
         routes: {
  '/': (context) => StartupScreen(),
-"home": (context)=> Home(),
-"login":(context)=>LogIn(),
-"signup_step1":(context)=>SignUp(),
-"signup_step3":(context)=>SignupStep3(),
-"signup_step4":(context)=>SignupStep4(),
+"/home": (context)=> Home(),
+"/login":(context)=>LogIn(),
+"/signup_step1":(context)=>SignUp(),
+"/signup_step3":(context)=>SignupStep3(),
+"/signup_step4":(context)=>SignupStep4(),
   }
             );
   }
 }
-

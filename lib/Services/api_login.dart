@@ -19,6 +19,7 @@ class ApiLogin extends GetConnect {
     );
   }
 
+
   Future<String?> refreshToken() async {
     final String refreshToken = GetStorage().read('refresh_token') ?? '';
 
