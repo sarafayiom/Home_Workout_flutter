@@ -17,11 +17,11 @@ class Binding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => HomeController(),fenix: true);
-    Get.lazyPut(() => SignupController());
-    Get.lazyPut(() => Signup2Controller());
+    Get.lazyPut(() => SignupController(),fenix: true);
+    Get.lazyPut(() => Signup2Controller(),fenix: true);
     Get.lazyPut(() => Signup3Controller(),fenix: true);
-    Get.lazyPut(() => Signup4Controller());
-    Get.lazyPut(() => Signup5Controller());
+    Get.lazyPut(() => Signup4Controller(),fenix: true);
+    Get.lazyPut(() => Signup5Controller(),fenix: true);
     Get.lazyPut(() => LoginController(),fenix: true);
     Get.lazyPut<ApiLogin>(() => ApiLogin(),fenix: true);
     Get.lazyPut<ApiRegister>(() => ApiRegister(),fenix: true);
