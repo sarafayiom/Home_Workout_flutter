@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:homeworkout_flutter/Models/otp_verify_model.dart';
 import 'package:homeworkout_flutter/Models/user_register_model.dart';
@@ -7,7 +6,7 @@ import 'package:homeworkout_flutter/Models/user_register_model.dart';
 class ApiRegister extends GetConnect{
   @override
   ApiRegister() {
-  baseUrl = 'http://127.0.0.1:8000/api';
+  baseUrl = 'https://homeworkout-1.onrender.com/api';
 
   httpClient.timeout = const Duration(seconds: 20);
 

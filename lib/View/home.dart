@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:homeworkout_flutter/Controllers/home_controller.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final homeController = Get.find<HomeController>();
+  Home({super.key});
 
   @override
   State<Home> createState() => _Home();
 }
 
 class _Home extends State<Home> {
-  final homeController = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _Home extends State<Home> {
         children: [
           TextButton(
               onPressed: () {
-                homeController.logout();
+               widget.homeController.logout();
               },
               child: Text("Logout"))
         ],

@@ -6,7 +6,7 @@ class ApiCompleteProfile extends GetConnect {
   final box = GetStorage();
 
   ApiCompleteProfile() {
-    httpClient.baseUrl = 'http://127.0.0.1:8000/api';
+    httpClient.baseUrl = 'https://homeworkout-1.onrender.com';
   }
 
   Map<String, String> get headers {

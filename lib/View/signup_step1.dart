@@ -18,16 +18,18 @@ class SignupStep1 extends StatelessWidget {
           style: TextStyle( color: Colors.black,fontSize: 15),),
           ),       
             SizedBox(height: 20,),
-            Expanded(
-              child: Container(width: 400,height: 400,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/image/StartUp1.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-          ),
+           Expanded(
+  child: Container(
+    width: MediaQuery.of(context).size.width,
+    height: MediaQuery.of(context).size.height * 0.5,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage("assets/image/StartUp1.png"),
+        fit: BoxFit.cover,
+      ),
+    ),
+  ),
+),
         ],
       ),);
   }

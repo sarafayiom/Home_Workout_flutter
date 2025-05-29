@@ -5,13 +5,14 @@ import 'package:homeworkout_flutter/Models/user_basic_info_model.dart';
 class ApiBasicInfo extends GetConnect {
   final box = GetStorage();
 
-  ApiBasicInfo() {
-    httpClient.baseUrl = 'http://127.0.0.1:8000/api';
-
+  @override
+  void onInit() {
+    httpClient.baseUrl = 'https://homeworkout-1.onrender.com';
+    super.onInit();
   }
 
   Future<Map<String, String>> getHeaders() async {
-    final token = box.read('access_token'); 
+    final token = box.read('access_token') ?? '';
     return {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -23,7 +24,7 @@ class ApiBasicInfo extends GetConnect {
     final headers = await getHeaders();
 
     final response = await patch(
-      '/profile/basic-info/', 
+      '/profile/basic-info/',
       info.toJson(),
       headers: headers,
     );

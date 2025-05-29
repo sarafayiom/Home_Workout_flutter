@@ -16,15 +16,15 @@ import 'package:homeworkout_flutter/View/signup_step5.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final signupController = Get.find<SignupController>();
+  final signupController = Get.find<SignupController>();
     final signup2Controller = Get.find<Signup2Controller>();
     final signup3Controller = Get.find<Signup3Controller>();
     final signup4Controller = Get.find<Signup4Controller>();
     final signup5Controller = Get.find<Signup5Controller>();
+  SignUp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -32,18 +32,20 @@ class SignUp extends StatelessWidget {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
-              child: PageView(
-                controller: signupController.controller,
-                onPageChanged: signupController.onPageChanged,
-                //  physics: NeverScrollableScrollPhysics(),
-                children: const [
-                  SignupStep1(),
-                  SignupStep2(),
-                  SignupStep3(),
-                  SignupStep4(),
-                  SignupStep5(),
-                ],
-              ),
+              child: PageView.builder(
+                 controller: signupController.controller,
+  itemCount: 5,
+  onPageChanged: signupController.onPageChanged,
+  itemBuilder: (context, index) {
+    switch (index) {
+      case 0: return SignupStep1();
+      case 1: return SignupStep2();
+      case 2: return SignupStep3();
+      case 3: return SignupStep4();
+      case 4: return SignupStep5();
+      default: return Container();
+    }
+  },),
             ),
             SmoothPageIndicator(
                 controller: signupController.controller,

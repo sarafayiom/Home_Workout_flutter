@@ -4,12 +4,12 @@ import 'package:homeworkout_flutter/Controllers/signup_step1_controller.dart';
 import 'package:homeworkout_flutter/Controllers/signup_step2_controller.dart';
 
 class SignupStep2 extends StatelessWidget {
-  const SignupStep2({super.key});
+  final signup2Controller = Get.find<Signup2Controller>();
+  final signupController =  Get.find<SignupController>();
+   SignupStep2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final signup2Controller = Get.find<Signup2Controller>();
-    final signupController =  Get.find<SignupController>();
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,

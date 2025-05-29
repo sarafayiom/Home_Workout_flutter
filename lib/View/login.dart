@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:homeworkout_flutter/Controllers/login_controller.dart';
 
 class LogIn extends StatelessWidget {
-  const LogIn({super.key});
+   final loginController = Get.find<LoginController>();
+   LogIn({super.key});
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.find<LoginController>();
     return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(

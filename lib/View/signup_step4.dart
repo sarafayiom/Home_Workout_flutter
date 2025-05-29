@@ -5,11 +5,11 @@ import 'package:homeworkout_flutter/Controllers/signup_step1_controller.dart';
 import 'package:homeworkout_flutter/Controllers/signup_step4_controller.dart';
 
 class SignupStep4 extends StatelessWidget {
-  const SignupStep4({super.key});
+  final signup4Controller = Get.find<Signup4Controller>();
+  final signupController = Get.find<SignupController>();
+   SignupStep4({super.key});
   @override
   Widget build(BuildContext context) {
-    final signup4Controller = Get.find<Signup4Controller>();
-     final signupController = Get.find<SignupController>();
     return Scaffold(backgroundColor: Colors.white,
         body: SafeArea(child:  ScrollbarTheme(
           data: ScrollbarThemeData(

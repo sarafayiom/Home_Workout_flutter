@@ -6,11 +6,11 @@ import 'package:get/get.dart';
 import 'package:homeworkout_flutter/Controllers/signup_step1_controller.dart';
 import 'package:homeworkout_flutter/Controllers/signup_step3_controller.dart';
 class SignupStep3 extends StatelessWidget {
-  const SignupStep3({super.key});
+  final signup3Controller = Get.find<Signup3Controller>();
+  final signupController = Get.find<SignupController>();
+   SignupStep3({super.key});
   @override
   Widget build(BuildContext context) {
-    final signup3Controller = Get.find<Signup3Controller>();
-     final signupController = Get.find<SignupController>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
