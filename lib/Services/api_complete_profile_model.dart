@@ -1,16 +1,18 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:homeworkout_flutter/Models/user_complete_profile_model.dart';
+import 'package:homeworkout_flutter/Services/api_refresh_token.dart';
 
 class ApiCompleteProfile extends GetConnect {
   final box = GetStorage();
+  final ApiRefreshToken apiRefreshToken = Get.find<ApiRefreshToken>();
 
   ApiCompleteProfile() {
-    httpClient.baseUrl = "http://192.168.1.10:8000";
+    httpClient.baseUrl = "https://homeworkout-1.onrender.com";
   }
 
   Map<String, String> get headers {
-    final token = box.read('access_token');
+    final token = box.read('access_token') ?? '';
     return {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
@@ -18,11 +20,22 @@ class ApiCompleteProfile extends GetConnect {
   }
 
   Future<Response> sendCompleteProfile(UserCompleteProfileModel data) async {
-    final response = await patch(
-      "/profile/days-time/", 
+    var response = await patch(
+      "/profile/days-time/",
       data.toJson(),
       headers: headers,
     );
+    if (response.statusCode == 401) {
+      bool refreshed = await apiRefreshToken.refreshToken();
+      if (refreshed) {
+        response = await patch(
+          "/profile/days-time/",
+          data.toJson(),
+          headers: headers,
+        );
+      }
+    }
+
     return response;
   }
 }

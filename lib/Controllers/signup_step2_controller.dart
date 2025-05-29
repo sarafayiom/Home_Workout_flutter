@@ -116,7 +116,7 @@ class Signup2Controller extends GetxController {
           errorMessage = data['password'][0];
         }
         Get.snackbar("Error", errorMessage);
-      } 
+      }
     }
   }
 
@@ -124,22 +124,30 @@ class Signup2Controller extends GetxController {
     final verificationCodeController = TextEditingController();
 
     Get.dialog(
-      barrierDismissible: false,
-      AlertDialog(
+        barrierDismissible: false,
+        AlertDialog(
           backgroundColor: Colors.white,
           title: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
                 child:
                     Lottie.asset('assets/animation/verfiy.json', height: 150),
               ),
-              Text("Enter the code sent to $email",
-                  style: TextStyle(fontSize: 15), textAlign: TextAlign.center),
+              SizedBox(height: 8),
+              Text(
+                "Enter the code sent to $email",
+                style: TextStyle(fontSize: 15),
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
           content: Container(
-            constraints: BoxConstraints(maxWidth: 300),
+            constraints: BoxConstraints(
+              maxWidth: 300,
+              maxHeight: 100,
+            ),
             child: PinCodeTextField(
               controller: verificationCodeController,
               appContext: Get.context!,
@@ -164,15 +172,16 @@ class Signup2Controller extends GetxController {
               ),
             ),
             TextButton(
-                onPressed: () {
-                  resendOtp();
-                },
-                child: Text(
-                  "Resend the code",
-                  style: TextStyle(color: Colors.deepPurple.shade400),
-                ))
-          ]),
-    );
+              onPressed: () {
+                resendOtp();
+              },
+              child: Text(
+                "Resend the code",
+                style: TextStyle(color: Colors.deepPurple.shade400),
+              ),
+            ),
+          ],
+        ));
   }
 
   Future<void> _verifyOtpAndProceed(String email, String otp) async {
@@ -217,8 +226,7 @@ class Signup2Controller extends GetxController {
 
         Get.snackbar("Error", errorMsg);
       }
-    } 
-    catch (e) {
+    } catch (e) {
       // ignore: avoid_print
       print("Somthing went wrong while sending the OTP: $e");
       Get.snackbar("Error", "Failed to connect to the server Try again");
@@ -231,7 +239,7 @@ class Signup2Controller extends GetxController {
     userEmilController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
-    
+
     super.onClose();
   }
 }

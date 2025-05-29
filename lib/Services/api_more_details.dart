@@ -2,16 +2,19 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:homeworkout_flutter/Models/user_more_details_model.dart';
+import 'package:homeworkout_flutter/Services/api_refresh_token.dart';
 
 class ApiMoreDetails extends GetConnect {
   final box = GetStorage();
 
+  final ApiRefreshToken apiRefreshToken = Get.find<ApiRefreshToken>();
+
   ApiMoreDetails() {
-    httpClient.baseUrl = "http://192.168.1.10:8000";
+    httpClient.baseUrl = "https://homeworkout-1.onrender.com";
   }
 
   Map<String, String> get headers {
-    final token = box.read('access_token');
+    final token = box.read('access_token') ?? '';
     return {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
@@ -19,11 +22,23 @@ class ApiMoreDetails extends GetConnect {
   }
 
   Future<Response> sendMoreDetails(UserMoreDetailsModel data) async {
-    final response = await patch(
+    var response = await patch(
       "/profile/more-details/",
       data.toJson(),
       headers: headers,
     );
+
+    if (response.statusCode == 401) {
+      bool refreshed = await apiRefreshToken.refreshToken();
+      if (refreshed) {
+        response = await patch(
+          "/profile/more-details/",
+          data.toJson(),
+          headers: headers,
+        );
+      }
+    }
+
     return response;
   }
 }

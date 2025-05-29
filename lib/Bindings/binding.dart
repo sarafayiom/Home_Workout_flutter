@@ -12,13 +12,14 @@ import 'package:homeworkout_flutter/Services/api_complete_profile_model.dart';
 import 'package:homeworkout_flutter/Services/api_login.dart';
 import 'package:homeworkout_flutter/Services/api_more_details.dart';
 import 'package:homeworkout_flutter/Services/api_otp.dart';
+import 'package:homeworkout_flutter/Services/api_refresh_token.dart';
 import 'package:homeworkout_flutter/Services/api_register.dart';
 
 class Binding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => SplashController());
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => HomeController(),fenix: true);
     Get.lazyPut(() => SignupController());
     Get.lazyPut(() => Signup2Controller());
     Get.lazyPut(() => Signup3Controller());
@@ -31,5 +32,6 @@ class Binding extends Bindings {
     Get.lazyPut<ApiBasicInfo>(() => ApiBasicInfo());
     Get.lazyPut<ApiMoreDetails>(() => ApiMoreDetails());
     Get.lazyPut<ApiCompleteProfile>(() => ApiCompleteProfile());
+    Get.lazyPut<ApiRefreshToken>(() => ApiRefreshToken());
   }
 }

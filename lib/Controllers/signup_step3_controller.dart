@@ -36,7 +36,6 @@ final genderItems = ['male', 'female'];
   );
 
    final response = await apiBasicInfo.updateUserBasicInfo(info);
-print("Sending PATCH with: ${info.toJson()}");
   if (response.statusCode == 200 || response.statusCode == 204) {
   
     signupController.nextPage();

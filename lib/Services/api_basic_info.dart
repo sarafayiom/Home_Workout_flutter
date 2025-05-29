@@ -1,13 +1,14 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:homeworkout_flutter/Models/user_basic_info_model.dart';
+import 'package:homeworkout_flutter/Services/api_refresh_token.dart';
 
 class ApiBasicInfo extends GetConnect {
   final box = GetStorage();
-
+   final apiRefreshToken = Get.find<ApiRefreshToken>();
   @override
   void onInit() {
-    httpClient.baseUrl = "http://192.168.1.10:8000";
+    httpClient.baseUrl = "https://homeworkout-1.onrender.com";
     super.onInit();
   }
 
@@ -21,14 +22,25 @@ class ApiBasicInfo extends GetConnect {
   }
 
   Future<Response> updateUserBasicInfo(UserBasicInfoModel info) async {
-    final headers = await getHeaders();
+    var headers = await getHeaders();
 
-    final response = await patch(
+    var response = await patch(
       '/profile/basic-info/',
       info.toJson(),
       headers: headers,
     );
 
+    if (response.statusCode == 401) {
+      bool refreshed = await apiRefreshToken.refreshToken();
+      if (refreshed) {
+        headers = await getHeaders();
+        response = await patch(
+          '/profile/basic-info/',
+          info.toJson(),
+          headers: headers,
+        );
+      }
+    }
     return response;
   }
 }
