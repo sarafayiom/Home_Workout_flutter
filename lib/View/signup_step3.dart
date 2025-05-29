@@ -11,9 +11,7 @@ class SignupStep3 extends StatelessWidget {
    SignupStep3({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
+    return SafeArea(
           child: SingleChildScrollView(
               padding: EdgeInsets.all(20),
               child: Column(children: [
@@ -212,7 +210,6 @@ class SignupStep3 extends StatelessWidget {
     suffixIcon: Image.asset("assets/image/award.png",width: 40,height: 40,
   ),),),)
 
-  ]))),
-    );
+  ])));
   }
 }

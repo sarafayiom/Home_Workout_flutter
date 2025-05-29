@@ -17,19 +17,19 @@ import 'package:homeworkout_flutter/Services/api_register.dart';
 class Binding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SplashController(), fenix: true);
-    Get.lazyPut(() => HomeController(), fenix: true);
-    Get.lazyPut(() => SignupController(), fenix: true);
-    Get.lazyPut(() => Signup2Controller(), fenix: true);
-    Get.lazyPut(() => Signup3Controller(), fenix: true);
-    Get.lazyPut(() => Signup4Controller(), fenix: true);
-    Get.lazyPut(() => Signup5Controller(), fenix: true);
+    Get.lazyPut(() => SplashController());
+    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => SignupController());
+    Get.lazyPut(() => Signup2Controller());
+    Get.lazyPut(() => Signup3Controller());
+    Get.lazyPut(() => Signup4Controller());
+    Get.lazyPut(() => Signup5Controller());
     Get.lazyPut(() => LoginController(), fenix: true);
-    Get.lazyPut<ApiLogin>(() => ApiLogin(), fenix: true);
-    Get.lazyPut<ApiRegister>(() => ApiRegister(), fenix: true);
-    Get.lazyPut<ApiOtp>(() => ApiOtp(), fenix: true);
-    Get.lazyPut<ApiBasicInfo>(() => ApiBasicInfo(), fenix: true);
-    Get.lazyPut<ApiMoreDetails>(() => ApiMoreDetails(), fenix: true);
-    Get.lazyPut<ApiCompleteProfile>(() => ApiCompleteProfile(), fenix: true);
+    Get.lazyPut<ApiLogin>(() => ApiLogin());
+    Get.lazyPut<ApiRegister>(() => ApiRegister());
+    Get.lazyPut<ApiOtp>(() => ApiOtp());
+    Get.lazyPut<ApiBasicInfo>(() => ApiBasicInfo());
+    Get.lazyPut<ApiMoreDetails>(() => ApiMoreDetails());
+    Get.lazyPut<ApiCompleteProfile>(() => ApiCompleteProfile());
   }
 }

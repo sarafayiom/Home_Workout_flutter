@@ -11,9 +11,7 @@ class SignupStep5 extends StatelessWidget {
   SignupStep5({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
+    return  SafeArea(
                 child:ScrollbarTheme(
           data: ScrollbarThemeData(
             thumbColor:WidgetStateProperty.all(Colors.deepPurple) ),
@@ -123,6 +121,6 @@ class SignupStep5 extends StatelessWidget {
   },
                       ),
                     )),),
-                ])))));
+                ]))));
   }
 }

@@ -10,8 +10,7 @@ class SignupStep4 extends StatelessWidget {
    SignupStep4({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
-        body: SafeArea(child:  ScrollbarTheme(
+    return  SafeArea(child:  ScrollbarTheme(
           data: ScrollbarThemeData(
             thumbColor:WidgetStateProperty.all(Colors.deepPurple) ),
             child: SingleChildScrollView(
@@ -72,7 +71,7 @@ class SignupStep4 extends StatelessWidget {
                     items: signup4Controller.goal.map((goal) {
                       return MultiSelectCard(
                           value: goal["id"],
-                          child: Expanded(
+                          child: Flexible(
                             child: 
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +166,7 @@ class SignupStep4 extends StatelessWidget {
                     items: signup4Controller.level.map((level) {
                       return MultiSelectCard(
                           value: level["id"],
-                          child: Expanded(
+                          child: Flexible(
                             child: 
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,6 +189,6 @@ class SignupStep4 extends StatelessWidget {
                     }).toList(),
                 ),
                 ])
-                ))));
+                )));
   }
 }

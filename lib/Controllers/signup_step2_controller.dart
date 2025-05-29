@@ -25,21 +25,7 @@ class Signup2Controller extends GetxController {
   var isOtpVerified = false.obs;
   final box = GetStorage();
   late final Image gifImage;
-  @override
-  void onInit() {
-    super.onInit();
-    gifImage = Image.asset(
-      'assets/image/verfiy.gif',
-      gaplessPlayback: true,
-    );
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    precacheImage(gifImage.image, Get.context!);
-  }
-
+  final RxBool _isSendingOtp = false.obs;
   Widget smartquotestype(bool thisbutton) {
     if (thisbutton == true) {
       return IconButton(
@@ -213,6 +199,8 @@ class Signup2Controller extends GetxController {
   }
 
   Future<void> resendOtp() async {
+    if (_isSendingOtp.value) return;
+    _isSendingOtp.value = true;
     String email = box.read('email');
 
     try {

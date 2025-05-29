@@ -4,13 +4,17 @@ import 'package:get/get.dart';
 class SignupController extends GetxController {
   PageController controller = PageController();
   RxInt currentPage = 0.obs;
+  bool isAnimating = false;
 
-  void goToPage(int index) {
-    controller.animateToPage(
+  void goToPage(int index) async {
+    if (isAnimating) return;
+    isAnimating = true;
+    await controller.animateToPage(
       index,
       duration: Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
+    isAnimating = false;
   }
 
   void onPageChanged(int index) {
@@ -18,18 +22,18 @@ class SignupController extends GetxController {
   }
 
   void nextPage() {
-  final currentPage = controller.hasClients ? controller.page?.toInt() : null;
+    final current = currentPage.value;
+    if (current < 4) {
+      goToPage(current + 1);
+    }
+  }
 
-  if (currentPage != null && currentPage < 4) {
-    goToPage(currentPage + 1);
+  void previousPage() {
+    final current = currentPage.value;
+    if (current > 0) {
+      goToPage(current - 1);
+    }
   }
-}
-void previousPage() {
-  if (controller.page! > 0) {
-    controller.previousPage(duration: Duration(milliseconds: 300), curve: Curves.ease);
-    currentPage.value = controller.page!.toInt() - 1;
-  }
-}
 
   String get buttonText {
     switch (currentPage.value) {

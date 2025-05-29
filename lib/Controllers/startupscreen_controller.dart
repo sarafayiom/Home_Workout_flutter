@@ -7,9 +7,9 @@ class SplashController extends GetxController {
   Rx waiting = true.obs;
    final box = GetStorage();
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    Future.delayed(Duration(seconds: 2), () {
+   await Future.delayed(Duration(seconds: 2), () {
       waiting.value = false;
      if (box.hasData('access_token')) {
         Get.off(() => Home());

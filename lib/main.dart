@@ -1,6 +1,4 @@
-
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -14,12 +12,13 @@ import 'package:homeworkout_flutter/View/signup_step4.dart';
 import 'package:homeworkout_flutter/View/startupscreen.dart';
 
 void main() async {
-  await GetStorage.init(); 
-   HttpOverrides.global = MyHttpOverrides();
-   WidgetsFlutterBinding.ensureInitialized();
-   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-   await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp, ]);
+ WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  HttpOverrides.global = MyHttpOverrides();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 
@@ -32,7 +31,9 @@ class MyApp extends StatefulWidget  {
 class _Myapp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp(  theme: ThemeData(
+    scaffoldBackgroundColor: Colors.white,
+  ),
       initialBinding: Binding(),
         initialRoute: '/',
         routes: {

@@ -7,7 +7,7 @@ class ApiBasicInfo extends GetConnect {
 
   @override
   void onInit() {
-    httpClient.baseUrl = 'https://homeworkout-1.onrender.com';
+    httpClient.baseUrl = "http://192.168.1.10:8000";
     super.onInit();
   }
 

@@ -47,13 +47,6 @@ print("Sending PATCH with: ${info.toJson()}");
     print("Field ${response.statusCode}");
     // ignore: avoid_print
     print("Response: ${response.body}");
-    print("Status code: ${response.statusCode}");
-print("Body: ${response.body}");
-print("Status text: ${response.statusText}");
-print("Headers: ${response.headers}");
-print("Has error: ${response.hasError}");
-print("Status error: ${response.statusText}");
-print("Sending PATCH with: ${info.toJson()}");
   }
 }
 }

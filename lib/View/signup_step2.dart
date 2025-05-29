@@ -11,9 +11,7 @@ class SignupStep2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
+    return SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(16),
             child: Form(
@@ -176,6 +174,6 @@ class SignupStep2 extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        );
   }
 }

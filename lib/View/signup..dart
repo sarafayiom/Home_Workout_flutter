@@ -32,7 +32,7 @@ class SignUp extends StatelessWidget {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.8,
-              child: PageView.builder(
+              child: PageView.builder( physics: NeverScrollableScrollPhysics(),
                  controller: signupController.controller,
   itemCount: 5,
   onPageChanged: signupController.onPageChanged,
