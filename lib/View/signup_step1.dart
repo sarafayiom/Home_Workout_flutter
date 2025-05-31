@@ -18,7 +18,7 @@ class SignupStep1 extends StatelessWidget {
             SizedBox(height: 10,),
            Expanded(
   child: Container(
-    width: 300,
+    width: 340,
     height: MediaQuery.of(context).size.height * 0.3,
     decoration: BoxDecoration(
       image: DecorationImage(

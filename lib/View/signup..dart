@@ -135,7 +135,7 @@ class SignUp extends StatelessWidget {
                           ScaffoldMessenger.of(context)
                             ..hideCurrentSnackBar()
                             ..showSnackBar(snackBar);
-                          Get.to(() => Home());
+                          Get.offAll(() => Home());
                         }
                       } else {
                         final snackBar = SnackBar(
